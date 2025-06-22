@@ -3,7 +3,7 @@ import re
 from text_utils import *
 from textattack.constraints import PreTransformationConstraint
 
-__excludes = ["<", ">", "EXPRESSION", "EQUATION", "ENT"]
+excludes = ["<", ">", "EXPRESSION", "EQUATION", "ENT"]
 
 class CustomConstraint(PreTransformationConstraint):
     def check_compatibility(self, transformation):
@@ -11,7 +11,7 @@ class CustomConstraint(PreTransformationConstraint):
 
     def _get_modifiable_indices(self, current_text):
         return set(
-            i for i, word in enumerate(current_text.words) if word not in __excludes
+            i for i, word in enumerate(current_text.words) if word not in excludes
         )
 
 def mask_ents(jsonl_file, out_file):
@@ -49,7 +49,6 @@ def undo_mask(augmented_sentences, multiplier, masked_file, out_file):
             ents = []
             
             for y, orig in enumerate(line['orig']):
-                print(text)
                 start = text.find(mask)
                 end = start + len(mask)
                 
@@ -57,7 +56,7 @@ def undo_mask(augmented_sentences, multiplier, masked_file, out_file):
 
                 ents.append({
                     'start_offset': start,
-                    'end_offset': end,
+                    'end_offset': start + len(orig),
                     'label': line['entities'][y]['label']
                 })
 
@@ -70,8 +69,8 @@ def undo_mask(augmented_sentences, multiplier, masked_file, out_file):
     
     save_jsonl(out_file, new_data)
             
-# mask_ents('data/base.jsonl', 'data/masked.jsonl')
-data = read_jsonl('data/masked.jsonl')
-sents = [line['text'] for line in data]
-
-undo_mask(sents, 1, 'data/masked.jsonl', 'data/redo.jsonl')
+def check_alignment(file):
+    file = read_jsonl(file)
+    for line in file:
+        for ent in line['entities']:
+            print(line['text'][ent['start_offset']:ent['end_offset']])
