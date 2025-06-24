@@ -15,7 +15,7 @@ augmenter = Augmenter(
 )
 
 # Step 3: Preprocess
-mask_ents('data/test.jsonl', 'data/masked_bt.jsonl')
+mask_ents('data/base.jsonl', 'data/masked_bt.jsonl')
 masked_data = read_jsonl('data/masked_bt.jsonl')
 texts = [line['text'] for line in masked_data]
 
@@ -30,5 +30,5 @@ for x, text in enumerate(texts):
 print(f'>> done augmenting: {len(aug_texts)} generated')
 
 # Step 5: Undo mask and save
-undo_mask(aug_texts, 1, 'data/masked_bt.jsonl', 'augmented/backtranslation/25.jsonl')
+undo_mask(aug_texts, 1, 'data/masked_bt.jsonl', 'augmented/backtranslation/25-2.jsonl')
 print('>> done undoing')

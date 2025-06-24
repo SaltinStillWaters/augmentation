@@ -1,0 +1,7 @@
+{"text": "On the other hand, if <EXPRESSION> is greater than or = <EXPRESSION>, we actually have integrate here.", "entities": [{"start_offset": 87, "end_offset": 96, "label": "command"}]}
+{"text": "So to do that, take the integral from <EXPRESSION> to <EXPRESSION> the simulated variable used here is <EXPRESSION>.", "entities": [{"start_offset": 15, "end_offset": 19, "label": "command"}, {"start_offset": 24, "end_offset": 32, "label": "method"}]}
+{"text": "And remember that the < ENT> from < EXPRESSION> to the < EQUATION>integralremember that the < ENT> from < EXPRESSION> to the < EQUATION>.", "entities": [{"start_offset": -1, "end_offset": 7, "label": "method"}]}
+{"text": "<EXPRESSION> cancel and we actually have <EXPRESSION>.", "entities": [{"start_offset": 13, "end_offset": 19, "label": "command"}]}
+{"text": "We < ENT> the standard formula, which is < EXPRESSION> to < EXPRESSION>use ENT> the standard formula, which is < EXPRESSION> to < EXPRESSION>.", "entities": [{"start_offset": -1, "end_offset": 2, "label": "command"}]}
+{"text": "So we do the integral of <EXPRESSION>.", "entities": [{"start_offset": 13, "end_offset": 21, "label": "method"}]}
+{"text": "But at the end of the day, you're gonna have to take out your calculation book and find the formula integration by parts, which is <EXPRESSION>.", "entities": [{"start_offset": 100, "end_offset": 120, "label": "method"}]}
