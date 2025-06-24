@@ -5,19 +5,18 @@ from itertools import chain
 from textattack.augmentation import Augmenter
 from textattack.transformations import BackTranslation
 
-# Step 1: Set up the transformation
-transformation = BackTranslation(
-    back_translator="textattack/transformer-wmt19-en-de",  # English → German → English
-    tokenizer="textattack/transformer-wmt19-de-en"
-)
+import torch
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(device)
 
-# Optional constraints
-constraints = [CustomConstraint()]
+# Step 1: Set up the transformation
+transformation = BackTranslation()
+transformation.src_model.model.to(device)
+transformation.target_model.model.to(device)
 
 # Step 2: Create augmenter
 augmenter = Augmenter(
     transformation=transformation,
-    constraints=constraints,
     transformations_per_example=1
 )
 
@@ -29,7 +28,10 @@ texts = [line['text'] for line in masked_data]
 print('>> done masking')
 
 # Step 4: Augment (⚠️ Slower than MLM!)
-aug_texts = list(chain.from_iterable(augmenter.augment_many(texts)))
+aug_texts = []
+for x, text in enumerate(texts):
+    aug_texts.append(augmenter.augment(text)[0])
+    print(x, '')
 print(f'>> done augmenting: {len(aug_texts)} generated')
 
 # Step 5: Undo mask and save

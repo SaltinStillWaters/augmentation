@@ -1,0 +1,26 @@
+{"text": "On the other to, if <EXPRESSION> is greater than we = <EXPRESSION>, or do actually have hand integrate here.", "entities": [{"start_offset": 93, "end_offset": 102, "label": "command"}]}
+{"text": "that to do the, we take So integral from <EXPRESSION> to <EXPRESSION> the dummy variable here used is <EXPRESSION>.", "entities": [{"start_offset": 19, "end_offset": 23, "label": "command"}, {"start_offset": 27, "end_offset": 35, "label": "method"}]}
+{"text": "And recall EXPRESSION the integral of <that> to the <EQUATION>.", "entities": [{"start_offset": 26, "end_offset": 34, "label": "method"}]}
+{"text": "<EXPRESSION> cancel get we actually and <EXPRESSION>.", "entities": [{"start_offset": 13, "end_offset": 19, "label": "command"}]}
+{"text": "We use the standard which, formula is <EXPRESSION> to <EXPRESSION>.", "entities": [{"start_offset": 3, "end_offset": 6, "label": "command"}]}
+{"text": "we So do the integral from <EXPRESSION>.", "entities": [{"start_offset": 13, "end_offset": 21, "label": "method"}]}
+{"text": "But at the end the day, you're going to have to pull out your and the calculus find textbook integration by parts formula, which is <EXPRESSION>.", "entities": [{"start_offset": 93, "end_offset": 113, "label": "method"}]}
+{"text": "the the hope is that this integral is going to on easier than the <EXPRESSION> be So left.", "entities": [{"start_offset": 26, "end_offset": 34, "label": "method"}, {"start_offset": 85, "end_offset": 89, "label": "command_attribute"}]}
+{"text": "Notice that this terms the integral of <EXPRESSION> of the is here.", "entities": [{"start_offset": 27, "end_offset": 35, "label": "method"}]}
+{"text": "And this is ENT <the> of <EXPRESSION> of the termsderivativethis is ENT <the> of <EXPRESSION> of the terms.", "entities": [{"start_offset": -1, "end_offset": 9, "label": "method"}]}
+{"text": "And in derivative is what's going to go the that integral.", "entities": [{"start_offset": 7, "end_offset": 17, "label": "method"}, {"start_offset": 49, "end_offset": 57, "label": "method"}]}
+{"text": "So <EXPRESSION> is the to be we already did going integral <EXPRESSION>.", "entities": [{"start_offset": 50, "end_offset": 58, "label": "method"}]}
+{"text": "A better and easier way to it's at this is going say, well, look to to go from <EXPRESSION> to <EXPRESSION>.", "entities": [{"start_offset": 49, "end_offset": 52, "label": "command"}]}
+{"text": "goes then you take the limit as <EXPRESSION> But to <EXPRESSION>.", "entities": [{"start_offset": 14, "end_offset": 18, "label": "command"}]}
+{"text": "And this negative negatives these cancel.", "entities": [{"start_offset": 34, "end_offset": 40, "label": "command"}]}
+{"text": "So we use the standard formula for variance, which this is.", "entities": [{"start_offset": 6, "end_offset": 9, "label": "command"}]}
+{"text": "But there's a here sign out we're, so the negatives cancel and here left with a positive sign negative.", "entities": [{"start_offset": 52, "end_offset": 58, "label": "command"}]}
+{"text": "in So order to do this integral, we can use a trick.", "entities": [{"start_offset": 23, "end_offset": 31, "label": "method"}, {"start_offset": 40, "end_offset": 43, "label": "command"}]}
+{"text": "But multiply by <EXPRESSION> and divide EXPRESSION <by>.", "entities": [{"start_offset": 4, "end_offset": 12, "label": "command"}, {"start_offset": 33, "end_offset": 39, "label": "command"}]}
+{"text": "Now, ENT at that <look>integral ENT at that <look>.", "entities": [{"start_offset": -1, "end_offset": 7, "label": "method"}]}
+{"text": "And so EXPRESSION is the probability that if you get than <EXPRESSION> less little <this>, you're not going to have any probability there.", "entities": [{"start_offset": 49, "end_offset": 52, "label": "command"}]}
+{"text": "And this get these they all CDFs of the exponential and are all have we form.", "entities": [{"start_offset": 9, "end_offset": 12, "label": "command"}]}
+{"text": "For <the> to than or = to <EXPRESSION>, it's going greater be EXPRESSION derivative of this thing.", "entities": [{"start_offset": 73, "end_offset": 83, "label": "method"}]}
+{"text": "You can the take also derivative of this and find that you get this.", "entities": [{"start_offset": 12, "end_offset": 16, "label": "command"}, {"start_offset": 22, "end_offset": 32, "label": "method"}, {"start_offset": 59, "end_offset": 62, "label": "command"}]}
+{"text": "Maybe the constant in front function the of changes as I take the derivative.", "entities": [{"start_offset": 57, "end_offset": 61, "label": "command"}, {"start_offset": 66, "end_offset": 76, "label": "method"}]}
+{"text": "So what is of <EXPRESSION> derivative the it, <EXPRESSION> of all.", "entities": [{"start_offset": 27, "end_offset": 37, "label": "method"}]}
