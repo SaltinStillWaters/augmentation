@@ -20,4 +20,4 @@ def sample_jsonl(input_path, output_path, percentage, seed=42):
     print(f">> Sampled {sample_size} of {len(lines)} lines to: {output_path}")
 
 # Example usage
-sample_jsonl('augmented/swap/50.jsonl', 'augmented/swap/10.jsonl', percentage=0.20)
+sample_jsonl('augmented/delete/50.jsonl', 'augmented/delete/10.jsonl', percentage=0.20)
