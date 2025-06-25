@@ -11,7 +11,7 @@ def word_deletion_augment(text, deletion_prob=0.2):
     protected_spans = [(m.start(), m.end()) for m in re.finditer(r"<[^<>]+>", text)]
 
     # Step 2: Tokenize and map tokens to offsets
-    tokens = word_tokenize(text)
+    tokens = text.split()
     offsets = []
     cursor = 0
     for token in tokens:
@@ -53,4 +53,4 @@ for x, sample in enumerate(data):
 b = time.time()
 print(f'total time: {b-a} s')
 
-undo_mask(texts, 1, 'data/masked.jsonl', 'augmented/delete/25-1.jsonl')
+undo_mask(texts, 1, 'data/masked.jsonl', 'augmented/delete/a.jsonl')

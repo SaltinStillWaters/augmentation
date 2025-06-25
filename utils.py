@@ -49,17 +49,17 @@ class CustomConstraint(PreTransformationConstraint):
 
 def mask_ents(jsonl_file, out_file):
     jsonl = read_jsonl(jsonl_file)
-    mask = '<ENT>'
 
     for line in jsonl:
         orig = []
         text = line['text']
         offset = 0
-        
-        for ent in line['entities']:
+
+        for i, ent in enumerate(line['entities']):
+            mask = f"<ENT{i}>"
             start = ent['start_offset'] + offset
             end = ent['end_offset'] + offset
-            
+
             length = end - start
             offset += len(mask) - length
 
@@ -68,43 +68,36 @@ def mask_ents(jsonl_file, out_file):
 
         line['orig'] = orig
         line['text'] = text
-        
+
     save_jsonl(out_file, jsonl)
-    
-def undo_mask(augmented_sentences, multiplier, masked_file, out_file):
-    masked = read_jsonl(masked_file)
-    mask = '<ENT>'
-    ctr = 0
-    new_data = []
-    for line in masked:
-        for x in range(multiplier):
-            text = augmented_sentences[ctr]
-            print('->>orig:', text)
-            ents = []
-            
-            for y, orig in enumerate(line['orig']):
-                start = text.find(mask)
-                end = start + len(mask)
-                
-                text = f'{text[:start]}{orig}{text[end:]}'
 
-                ents.append({
-                    'start_offset': start,
-                    'end_offset': start + len(orig),
-                    'label': line['entities'][y]['label']
-                })
-
-            ctr += 1
-            
-            new_data.append({
-                'text': text,
-                'entities': ents,
-            })
     
-    save_jsonl(out_file, new_data)
+def undo_mask(aug_texts, num_masks, masked_path, output_path):
+    data = read_jsonl(masked_path)
+    assert len(aug_texts) == len(data)
+
+    for line, aug in zip(data, aug_texts):
+        for i, orig in enumerate(line['orig']):
+            aug = re.sub(f"<ENT{i}>", orig, aug)
+        line['text'] = aug
+
+    save_jsonl(output_path, data)
+
             
 def check_alignment(file):
     file = read_jsonl(file)
+    uniques = set()
     for line in file:
         for ent in line['entities']:
-            print(line['text'][ent['start_offset']:ent['end_offset']])
+            uniques.add(line['text'][ent['start_offset']:ent['end_offset']])
+            # print(line['text'][ent['start_offset']:ent['end_offset']])
+    
+    return uniques
+
+def fix_ent_order(in_file):
+    data = read_jsonl(in_file)
+    for line in data:
+        line["entities"] = sorted(line["entities"], key=lambda e: e["start_offset"])
+    save_jsonl('new.jsonl', data)
+
+fix_ent_order('data/base.jsonl')

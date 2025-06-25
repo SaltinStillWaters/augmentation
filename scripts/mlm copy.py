@@ -99,4 +99,4 @@ for x, sample in enumerate(data):
 b = time.time()
 print(f'total time: {b-a} s')
 
-undo_mask(texts, 1, 'data/masked.jsonl', 'augmented/mlm/25-2.jsonl')
+undo_mask(texts, 1, 'data/masked.jsonl', 'augmented/mlm/a.jsonl')

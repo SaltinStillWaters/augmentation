@@ -63,6 +63,8 @@ print(len(filtered))
 #         f.write('\n')
 
 for a, x in enumerate(filtered):
-    temp = [z for z in [read_jsonl(y) for y in x]]
-    print(temp)
+    temp = []
+    for y in x:
+        for z in read_jsonl(y):
+            temp.append(z)
     save_jsonl(f'out/{a}.jsonl', temp)

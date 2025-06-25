@@ -5,14 +5,8 @@ from itertools import chain
 from textattack.augmentation import Augmenter
 from textattack.transformations import BackTranslation
 
-import torch
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(device)
-
 # Step 1: Set up the transformation
 transformation = BackTranslation()
-transformation.src_model.model.to(device)
-transformation.target_model.model.to(device)
 
 # Step 2: Create augmenter
 augmenter = Augmenter(
@@ -29,11 +23,12 @@ print('>> done masking')
 
 # Step 4: Augment (⚠️ Slower than MLM!)
 aug_texts = []
+total = len(texts)
 for x, text in enumerate(texts):
     aug_texts.append(augmenter.augment(text)[0])
-    print(x, '')
+    print(f'{x}/{total}, ')
 print(f'>> done augmenting: {len(aug_texts)} generated')
 
 # Step 5: Undo mask and save
-undo_mask(aug_texts, 1, 'data/masked_bt.jsonl', 'augmented/backtranslation/25.jsonl')
+undo_mask(aug_texts, 1, 'data/masked_bt.jsonl', 'augmented/backtranslation/25-2.jsonl')
 print('>> done undoing')
